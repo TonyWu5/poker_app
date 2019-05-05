@@ -34,10 +34,10 @@ class Sessions extends React.Component {
             {this.state.sessions.map(session => {
               return (
                 <div key={session._id}>
-                  <p>{session.location}</p>
-                  <p>{session.buyin}</p>
-                  <p>{session.tableLimit}</p>
-                  <p>{session.cashout}</p>
+                  <p>Location: {session.location}</p>
+                  <p>Buy-in amount: {session.buyin}</p>
+                  <p>Stakes: {session.tableLimit} no-limit</p>
+                  <p>Cashed Out: {session.cashout}</p>
                   <p>--------------------------</p>
                 </div>
               )
