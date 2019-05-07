@@ -7,9 +7,11 @@ class Sessions extends React.Component {
     super(props);
     this.state = {
       isSubmitted: false,
+      activeSession: -1,
       sessions: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleSubmit() {
@@ -26,6 +28,12 @@ class Sessions extends React.Component {
     event.preventDefault();
   }
 
+  handleClick(id) {
+    this.setState({
+      ['activeSession']: id
+    });
+  }
+
   render() {
     if (this.state.isSubmitted) {
       return (
@@ -34,7 +42,10 @@ class Sessions extends React.Component {
           <div>
             {this.state.sessions.map(session => {
               return (
-                <div className="session" key={session._id}>
+                <div 
+                  onClick={() => {this.handleClick(session._id)}} 
+                  className={this.state.activeSession === session._id ? 'sessionClicked' : 'session'} 
+                  key={session._id}>
                   <p>Location: {session.location}</p>
                   <p>Buy-in amount: {session.buyin}</p>
                   <p>Stakes: {session.tableLimit} no-limit</p>
