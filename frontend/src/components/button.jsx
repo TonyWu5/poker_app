@@ -17,7 +17,6 @@ class Button extends React.Component {
     this.onUserSubmit = this.onUserSubmit.bind(this);
   }
 
-
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
@@ -25,9 +24,6 @@ class Button extends React.Component {
   }
 
   onUserSubmit(event) {
-    // const session = {
-    //   location: event.target.location
-    // }
     const session = {
       location: this.state.location,
       buyin: this.state.buyin,
@@ -35,7 +31,6 @@ class Button extends React.Component {
       cashout: this.state.cashout,
     };
     
-    // console.log(event.target);
     axios.post('/sessions', session)
       .then(res => {
         this.setState({

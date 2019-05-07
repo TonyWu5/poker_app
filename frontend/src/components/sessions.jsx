@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import '../../public/styles.css';
 
 class Sessions extends React.Component {
   constructor(props) {
@@ -33,14 +34,13 @@ class Sessions extends React.Component {
           <div>
             {this.state.sessions.map(session => {
               return (
-                <div key={session._id}>
+                <div className="session" key={session._id}>
                   <p>Location: {session.location}</p>
                   <p>Buy-in amount: {session.buyin}</p>
                   <p>Stakes: {session.tableLimit} no-limit</p>
                   <p>Cashed Out: {session.cashout}</p>
-                  <p>--------------------------</p>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
